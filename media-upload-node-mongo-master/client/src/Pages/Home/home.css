@@ -1,0 +1,46 @@
+.home{
+    /* background-color: rgb(32, 32, 32); */
+    display: flex;
+    flex-wrap:wrap;
+    color: rgb(61, 59, 59);
+    justify-content: space-evenly;
+}
+.home>div{
+    border-bottom: 1px solid rgb(39, 38, 38);
+    padding-bottom: 2rem;
+}
+.home>Image{
+    border-bottom: 1px solid rgb(46, 46, 46);
+    padding-bottom: 3rem;
+}
+.home_header{
+    text-align: center;
+    color: rgba(10, 133, 16, 0.829);
+    margin-top: 2rem;
+    font-size: 5rem;
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+.home_card{
+    text-align: center;
+    box-shadow: 5px;
+    /* color-interpolation-filters: sRGB; */
+    /* text-shadow: 2px 2px 4px #928e8e; */
+    text-decoration: none;
+    overflow-wrap: break-word;
+}
+#intro{
+    font-size: 4rem;
+    color: rgb(55, 55, 58);
+}
+.avat{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(0.9);
+    margin: 2rem;
+    height: 300px;
+    width: 300px;
+}
+.avat:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(0.95);
+}
