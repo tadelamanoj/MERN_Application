@@ -6,7 +6,9 @@ import { Image } from "react-bootstrap"
 import "bootstrap/dist/css/bootstrap.css"
 import './home.css'
 import Header from '../Header/header'
-
+import {Provider} from 'react-redux';
+import store from '../../redux/store';
+import VShop from '../../components/VShop';
 function Home() {
   const [data,setData] = useState(null)
   const {url,method}=URL_DETAILS['getDetails']
@@ -45,7 +47,10 @@ function Home() {
 
   return (
     <React.Fragment>
-      <Header/>
+      <Provider store={store}>
+        <Header/>
+        
+		  
       <Container className='d-flex flex-auto '>
         <Image
         className="avat"
@@ -59,8 +64,9 @@ function Home() {
             <p id="intro">I'm {data?data.username:"user"},</p>
             <p id="intro">A Full-Stack Engineer at Infosys based in Bangalore. </p> 
         </div>
-        
       </Container>
+        <VShop/>
+      </Provider>
     </React.Fragment>
   )
 }

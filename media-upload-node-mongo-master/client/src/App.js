@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         {isLogin?(<>
-        <Route exact path="/home" element={<Home/>}/>
+        <Route exact path="/" element={<Home/>}/>
         <Route path="*" element={<div className='align-content-center'>Page not Found</div>}/>
         </>):(
         <><Route exact path="/register" element={ <Register/>} />
