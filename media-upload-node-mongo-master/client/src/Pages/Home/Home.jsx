@@ -9,13 +9,15 @@ import Header from '../Header/header'
 import {Provider} from 'react-redux';
 import store from '../../redux/store';
 import VShop from '../../components/VShop';
+import Pagenation from '../Pagenation/Pagenation';
 function Home() {
   const [data,setData] = useState(null)
   const {url,method}=URL_DETAILS['getDetails']
   const URL_ =url+"?username="+localStorage.getItem('user')
   const [img,setImg]= useState()
-  
-
+  const [datap,setDatap] = useState(null)
+  const [pageData,setPageData]=useState()
+  const pageSize=10
   useEffect( ()=>{
     const {url,method}=URL_DETAILS['getPicture']
     const imageurl=`${url}/${data?data.profilePicture:null}`
@@ -44,10 +46,24 @@ function Home() {
       })
     .catch(err=>console.log(err))
   },[])
+  
+  useEffect(()=>{
+    fetch("https://jsonplaceholder.typicode.com/posts",{
+      method:"GET"
+    }).then(res=>res.json())
+    .then(data=>{setDatap(data) ; setPageData(data.slice(0,pageSize))})
+
+  },[])
+  
+
+  const pageHandler=(page)=>{
+    // console.log(page)
+    setPageData(datap.slice(page*pageSize-pageSize,page*pageSize))
+  }
 
   return (
     <React.Fragment>
-      <Provider store={store}>
+      
         <Header/>
         
 		  
@@ -66,7 +82,19 @@ function Home() {
         </div>
       </Container>
         <VShop/>
-      </Provider>
+
+      <Container>
+        <div>
+          {datap ? 
+            <div>
+              {pageData.map(e=><div>{e.id} {e.title}</div>)}
+              <Pagenation data={datap} pageHandler={pageHandler}/>
+            </div>:<div>No data found</div>
+          }
+        </div>
+      </Container>
+
+  
     </React.Fragment>
   )
 }
