@@ -38,7 +38,7 @@ export default function LoginFormik() {
         localStorage.setItem('user',data.username)
         setSuccess("Login Success")
         setTimeout(() => {
-          window.location.href="/home"
+          window.location.href="/"
         }, 1000);
       }
     }).catch((err)=>{

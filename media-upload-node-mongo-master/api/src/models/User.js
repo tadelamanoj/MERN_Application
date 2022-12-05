@@ -20,6 +20,12 @@ const UserSchema = mongoose.Schema(
       required: true,
       min: 5,
     },
+    phoneNumber:{
+      type: String,
+      require:true,
+      min:10,
+      max:10,
+    },
     profilePicture: {
       type: String,
       default: "",

@@ -19,6 +19,7 @@ router.post("/register",upload.single("file"), async (req, res,next) => {
       username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
+      phoneNumber:req.body.phoneNumber,
       profilePicture:req.file.filename||""
     }; 
     const userCollection = await User.getCollection()

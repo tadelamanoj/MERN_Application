@@ -46,9 +46,9 @@ function Home() {
       })
     .catch(err=>console.log(err))
   },[])
-  
+  // https://jsonplaceholder.typicode.com/posts
   useEffect(()=>{
-    fetch("https://jsonplaceholder.typicode.com/posts",{
+    fetch("http://localhost:8080/file/allUsers",{
       method:"GET"
     }).then(res=>res.json())
     .then(data=>{setDatap(data) ; setPageData(data.slice(0,pageSize))})
@@ -78,19 +78,31 @@ function Home() {
             <h1 className='text-success'>Welcome {data? data.username:null} to your Profile..!</h1>
             <h1 className="home_header" >Hi There.!</h1>
             <p id="intro">I'm {data?data.username:"user"},</p>
-            <p id="intro">A Full-Stack Engineer at Infosys based in Bangalore. </p> 
+            <p id="intro">A Full-Stack Engineer at Infosys based in Andhra Pradesh. </p> 
         </div>
       </Container>
-        <VShop/>
+        {/* <VShop/> */}
 
       <Container>
         <div>
-          {datap ? 
-            <div>
-              {pageData.map(e=><div>{e.id} {e.title}</div>)}
-              <Pagenation data={datap} pageHandler={pageHandler}/>
-            </div>:<div>No data found</div>
-          }
+          <table>
+              <tr>
+                <th>S No.</th>
+                <th>User Name</th>
+                <th>Email ID</th>
+                <th>Phone Number</th>
+              </tr>
+              
+              {datap ? 
+              <React.Fragment className="align-content-center justify-content-between">
+                {pageData.map((e,index)=><tr><td>{index+1}</td><td> {e.username}</td><td>{e.email}</td> <td>{e.phoneNumber?e.phoneNumber:"Not Updated"}</td></tr>)}
+                <Pagenation className="align-content-center" data={datap} pageHandler={pageHandler}/>
+              </React.Fragment>:<div>No data found</div>
+            }
+
+            
+          </table>
+          
         </div>
       </Container>
 
