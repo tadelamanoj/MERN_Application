@@ -11,7 +11,7 @@ function header() {
             </Link>
             
             <div className="header_nav">
-                <Link to='/details' ><div className="header_option1">About</div></Link>
+                <Link to='/details' ><div className="header_option1" data-testid>About</div></Link>
                 <Link to='/work'><div className="header_option1">Work</div></Link>
                 <Link to='/contact'><div className="header_option1">Contact</div></Link>
             </div>

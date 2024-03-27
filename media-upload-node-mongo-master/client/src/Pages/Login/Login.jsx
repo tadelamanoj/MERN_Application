@@ -2,7 +2,10 @@ import "./login.css";
 import { CircularProgress } from "@material-ui/core";
 import { useNavigate } from 'react-router-dom'
 import { useState } from "react";
-import { URL_DETAILS } from "../../Endpoints/Apidetails";
+import { URL_DETAILS } from "../../Endpoints/Apidetails"; 
+import TextToSpeech from "./TextTospeech";
+import VirtualizedList from "../../Virtual";
+import Hoc from "../../Hoc";
 export default function LoginFormik() {
   const [email,setEmail] = useState("");
   const [password,setPassword ]= useState("");
@@ -57,6 +60,9 @@ export default function LoginFormik() {
         </div>
         <div className="loginRight">
           <form className="loginBox" method="POST" onSubmit={handleClick}>
+            {/* <VirtualizedList/>
+            <Hoc/>
+            <TextToSpeech/> */}
             <input
               placeholder="Email"
               type="email"

@@ -10,6 +10,7 @@ import {Provider} from 'react-redux';
 import store from '../../redux/store';
 import VShop from '../../components/VShop';
 import Pagenation from '../Pagenation/Pagenation';
+import ExcelDownload from '../ExportFiles/ExportFiles';
 function Home() {
   const [data,setData] = useState(null)
   const {url,method}=URL_DETAILS['getDetails']
@@ -105,8 +106,8 @@ function Home() {
           
         </div>
       </Container>
-
-  
+      <ExcelDownload/>
+            
     </React.Fragment>
   )
 }

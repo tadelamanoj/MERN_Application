@@ -40,7 +40,7 @@ const connectionOptions={
       useCreateIndex:true
   }
 let connection={}
-const url= process.env.DB || "mongodb://localhost:27017/newmedia"
+const url= process.env.DB || "mongodb://127.0.0.1:27017/newmedia"
 connection.getCollection = async ()=>{
   let database= await mongoose.connect(url,connectionOptions);
   let userModel= await database.model("users",UserSchema);
@@ -49,7 +49,7 @@ connection.getCollection = async ()=>{
 
 // async function k(){
 // const u=await connection.getCollection()
-// // console.log(u)
+// console.log(u)
 // const data = await u.find({})
 // console.log(data)
 // }

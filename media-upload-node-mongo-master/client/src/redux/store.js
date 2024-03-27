@@ -2,7 +2,7 @@ import { combineReducers,legacy_createStore as createStore,applyMiddleware,compo
 import laptopReducer from './reducers/laptopReducer';
 import mobileReducer from './reducers/mobileReducer';
 import usersReducer from './reducers/usersReducer';
-import thunk from 'redux-thunk';
+import {thunk} from 'redux-thunk';
 import logger from 'redux-logger';
 const rootReducer = combineReducers({
   laptops: laptopReducer,

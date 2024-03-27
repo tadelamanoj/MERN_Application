@@ -19,7 +19,7 @@ conn.once("open", function () {
     gfs.collection("photos");
 });
 
-app.use("/file",auth);
+app.use("/file",auth); 
 app.use("/file",users)
 // media routes
 app.get("/file/:filename", async (req, res) => {

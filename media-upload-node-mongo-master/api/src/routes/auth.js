@@ -6,7 +6,7 @@ const upload = require("../middleware/upload");
 
 //REGISTER
 
-router.post("/register",upload.single("file"), async (req, res,next) => {
+router.post("/register",upload.single("file"), async (req, res,next) => { 
   try {
     //generate new password
     const salt = await bcrypt.genSalt(10);
@@ -28,6 +28,7 @@ router.post("/register",upload.single("file"), async (req, res,next) => {
       res.status(200)
       res.send(addtoUsers)
       next()
+      // linesof statement
     }else{
       const err =new Error("Please provide all fields")
       err.status(404)
